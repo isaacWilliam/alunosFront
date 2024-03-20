@@ -8,7 +8,7 @@ import {delay, first, take} from "rxjs";
 })
 export class CursoService {
 
-  API_URL = 'api/cursos';
+  API_URL = 'http://localhost:8080/api/cursos';
 
   constructor(
     private http: HttpClient

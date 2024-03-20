@@ -10,9 +10,11 @@ RUN npm run build
 
 FROM nginx:alpine
 VOLUME /var/cache/nginx
-# mudar o nome do request para o nome do projeto novo do front
+
 COPY --from=angular app/dist/angular-spring /usr/share/nginx/html
 COPY ./config/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
 
 #Rodar no terminal
 # docker build -t izakew/nome_imagem .
