@@ -50,13 +50,15 @@ export class CursoFormComponent implements OnInit{
   enviar(){
     this.loading = true;
     // setTimeout(() => {
-      this.loading = false;
+
       this.service.save(this.formGroup.value).subscribe({
         next: (n: Curso) => {
+          this.loading = false;
           this.showSimpleToast('success', 'Sucesso', 'Curso salvo com sucesso.');
           this.cancel();
         },
         error: (e: any) => {
+          this.loading = false;
           this.showSimpleToast('error', 'Erro na Requisição', 'Retorne a página anterior.');
         }
       });
